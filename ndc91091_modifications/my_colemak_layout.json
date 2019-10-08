@@ -2,7 +2,7 @@
     "title": "My Colemak Keyboard",
     "rules": [
         {
-            "description": "Remap keys to use Colemak keyboard layout",
+            "description": "Change caps_lock to control if pressed with other keys",
             "manipulators": [
                 {
                     "type": "basic",
@@ -10,22 +10,132 @@
                         "key_code": "caps_lock",
                         "modifiers": {
                             "optional": [
-                                "caps_lock",
-                                "left_command",
-                                "left_control",
-                                "left_alt",
-                                "right_command",
-                                "right_control",
-                                "right_alt"
+                                "any"
                             ]
                         }
                     },
                     "to": [
                         {
-                            "key_code": "caps_lock"
+                            "key_code": "right_control"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "caps_lock",
+                            "hold_down_milliseconds": 500
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Vi style arrow with right_control + h/j/k/l",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "h",
+                        "modifiers": {
+                        	"mandatory": [
+                        		"right_control"
+                        	],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_arrow"
                         }
                     ]
                 },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "j",
+                        "modifiers": {
+                        	"mandatory": [
+                        		"right_control"
+                        	],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "down_arrow"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                        	"mandatory": [
+                        		"right_control"
+                        	],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "up_arrow"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "l",
+                        "modifiers": {
+                        	"mandatory": [
+                        		"right_control"
+                        	],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "right_control + spacebar = delete_or_backspace",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_control"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Remap keys to use Colemak keyboard layout",
+            "manipulators": [
                 {
                     "type": "basic",
                     "from": {
@@ -3237,7 +3347,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "t",
+                            "key_code": "g",
                             "modifiers": [
                                 "right_shift"
                             ]
@@ -3706,12 +3816,19 @@
             ]
         },
         {
-            "description": "Change caps_lock to control if pressed with other keys. (rev 2)",
+            "description": "equal_sign + delete = delete_forward",
             "manipulators": [
                 {
                     "type": "basic",
                     "from": {
-                        "key_code": "caps_lock",
+                        "simultaneous": [
+                            {
+                                "key_code": "equal_sign"
+                            },
+                            {
+                                "key_code": "delete_or_backspace"
+                            }
+                        ],
                         "modifiers": {
                             "optional": [
                                 "any"
@@ -3720,13 +3837,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "left_control"
-                        }
-                    ],
-                    "to_if_alone": [
-                        {
-                            "key_code": "caps_lock",
-                            "hold_down_milliseconds": 500
+                            "key_code": "delete_forward"
                         }
                     ]
                 }
