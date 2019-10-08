@@ -153,6 +153,9 @@
           "path": "json/shift_arrows.json"
         },
         {
+          "path": "json/command_arrows.json"
+        },
+        {
           "path": "json/nmop_to_page_updown_and_homeend.json"
         },
         {
@@ -276,6 +279,10 @@
         },
         {
           "path": "json/colemak_layout.json"
+        },
+        {
+          "path": "json/colemak_dh_ansi_layout.json",
+          "extra_description_path": "extra_descriptions/colemak_dh_ansi_layout.json.html"
         },
         {
           "path": "json/codemak.json",
