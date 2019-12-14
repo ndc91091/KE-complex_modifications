@@ -2,7 +2,7 @@
     "title": "My Colemak Keyboard",
     "rules": [
         {
-            "description": "Change caps_lock to control if pressed with other keys",
+            "description": "Change caps_lock/enter to control if pressed with other keys",
             "manipulators": [
                 {
                     "type": "basic",
@@ -16,20 +16,91 @@
                     },
                     "to": [
                         {
+                            "key_code": "left_control"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "escape",
+                            "hold_down_milliseconds": 40
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
                             "key_code": "right_control"
                         }
                     ],
                     "to_if_alone": [
                         {
-                            "key_code": "caps_lock",
-                            "hold_down_milliseconds": 500
+                            "key_code": "return_or_enter",
+                            "hold_down_milliseconds": 40
                         }
                     ]
                 }
             ]
         },
         {
-            "description": "Vi style arrow with right_control + h/j/k/l",
+            "description": "Change tab/backslash to right_option if pressed with other keys",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_option"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "tab",
+                            "hold_down_milliseconds": 40
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "backslash",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_option"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "backslash",
+                            "hold_down_milliseconds": 40
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Vi style arrow with tab + h/j/k/l (enable tab/backslash to right_option first)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -37,7 +108,7 @@
                         "key_code": "h",
                         "modifiers": {
                         	"mandatory": [
-                        		"right_control"
+                        		"right_option"
                         	],
                             "optional": [
                                 "caps_lock"
@@ -56,7 +127,7 @@
                         "key_code": "j",
                         "modifiers": {
                         	"mandatory": [
-                        		"right_control"
+                        		"right_option"
                         	],
                             "optional": [
                                 "caps_lock"
@@ -75,7 +146,7 @@
                         "key_code": "k",
                         "modifiers": {
                         	"mandatory": [
-                        		"right_control"
+                        		"right_option"
                         	],
                             "optional": [
                                 "caps_lock"
@@ -94,7 +165,7 @@
                         "key_code": "l",
                         "modifiers": {
                         	"mandatory": [
-                        		"right_control"
+                        		"right_option"
                         	],
                             "optional": [
                                 "caps_lock"
@@ -110,7 +181,7 @@
             ]
         },
         {
-            "description": "right_control + spacebar = delete_or_backspace",
+            "description": "tab + spacebar = delete_or_backspace (enable tab/backslash to right_option first)",
             "manipulators": [
                 {
                     "type": "basic",
@@ -118,7 +189,7 @@
                         "key_code": "spacebar",
                         "modifiers": {
                             "mandatory": [
-                                "right_control"
+                                "right_option"
                             ],
                             "optional": [
                                 "caps_lock"
@@ -128,6 +199,201 @@
                     "to": [
                         {
                             "key_code": "delete_or_backspace"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Remap qwe/asd/zxc/g to 123/456/789/0 (enable tab/backslash to right_option first)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "q",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "1"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "w",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "2"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "e",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "3"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "a",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "4"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "s",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "5"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "d",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "6"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "z",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "7"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "x",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "8"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "c",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "9"
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "g",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_option"
+                            ],
+                            "optional": [
+                                "caps_lock"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "0"
                         }
                     ]
                 }
